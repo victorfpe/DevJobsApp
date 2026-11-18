@@ -87,7 +87,7 @@ public class TelaEmpresa extends javax.swing.JFrame {
         CampoCurso3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 1050));
+        setPreferredSize(new java.awt.Dimension(1000, 1050));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(12, 50, 111));

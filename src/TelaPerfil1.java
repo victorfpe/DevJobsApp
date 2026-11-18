@@ -17,6 +17,26 @@ public class TelaPerfil1 extends javax.swing.JFrame {
     configurarRolagem();
     aplicarVisualModerno();
 }
+   
+  private void configurarRolagem() {
+
+    javax.swing.JScrollPane rolagem = new javax.swing.JScrollPane(jPainelFundo);
+
+    rolagem.setVerticalScrollBarPolicy(
+        javax.swing.JScrollPane.VERTICAL_SCROLLBAR_ALWAYS
+    );
+
+    rolagem.setHorizontalScrollBarPolicy(
+        javax.swing.JScrollPane.HORIZONTAL_SCROLLBAR_NEVER
+    );
+
+    rolagem.getVerticalScrollBar().setUnitIncrement(20);
+    rolagem.setBorder(null);
+
+    jPanel2.add(rolagem,
+        new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 1150, 1338));
+}
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -111,7 +131,7 @@ public class TelaPerfil1 extends javax.swing.JFrame {
         jEnsino3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 1050));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(12, 50, 111));
         jPanel2.setMaximumSize(new java.awt.Dimension(0, 0));
@@ -196,7 +216,8 @@ public class TelaPerfil1 extends javax.swing.JFrame {
         jPanel2.add(jAlterarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 1150, 80));
 
         jPainelFundo.setBackground(new java.awt.Color(153, 153, 153));
-        jPainelFundo.setPreferredSize(new java.awt.Dimension(1800, 1800));
+        jPainelFundo.setPreferredSize(new java.awt.Dimension(1100, 1500));
+        jPainelFundo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -239,6 +260,8 @@ public class TelaPerfil1 extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTable2);
 
         jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 810, 180));
+
+        jPainelFundo.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1074, 890, 294));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -347,6 +370,8 @@ public class TelaPerfil1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPainelFundo.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 262, 887, -1));
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -426,6 +451,8 @@ public class TelaPerfil1 extends javax.swing.JFrame {
         j7.setText("1");
         j7.setOpaque(true);
         jPanel1.add(j7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
+
+        jPainelFundo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 256));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -563,6 +590,8 @@ public class TelaPerfil1 extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
+        jPainelFundo.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 785, 480, 283));
+
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -596,6 +625,8 @@ public class TelaPerfil1 extends javax.swing.JFrame {
         jEnsino4.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
         jEnsino4.setText("Certificados *");
         jPanel7.add(jEnsino4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+
+        jPainelFundo.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 785, 395, 283));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -636,66 +667,11 @@ public class TelaPerfil1 extends javax.swing.JFrame {
         jEnsino3.setText("Frameworks e Tecnologias *");
         jPanel10.add(jEnsino3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
 
-        javax.swing.GroupLayout jPainelFundoLayout = new javax.swing.GroupLayout(jPainelFundo);
-        jPainelFundo.setLayout(jPainelFundoLayout);
-        jPainelFundoLayout.setHorizontalGroup(
-            jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPainelFundoLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(220, 220, 220))
-            .addGroup(jPainelFundoLayout.createSequentialGroup()
-                .addGroup(jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPainelFundoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(196, 196, 196))
-            .addGroup(jPainelFundoLayout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 872, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPainelFundoLayout.setVerticalGroup(
-            jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPainelFundoLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
-        );
+        jPainelFundo.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 559, 887, 220));
 
         jPanel2.add(jPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 900, 1510));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1418, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -719,40 +695,6 @@ public class TelaPerfil1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         }
     
-    // 1. Declaração do JScrollPane
-private javax.swing.JScrollPane rolagemPerfil;
-
-// 2. Método de configuração da rolagem
-private void configurarRolagem() {
-
-    jPanel2.remove(jPainelFundo);
-
-    rolagemPerfil = new javax.swing.JScrollPane(jPainelFundo);
-
-    rolagemPerfil.setVerticalScrollBarPolicy(
-        javax.swing.JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
-    );
-
-    rolagemPerfil.setHorizontalScrollBarPolicy(
-        javax.swing.JScrollPane.HORIZONTAL_SCROLLBAR_NEVER
-    );
-
-    rolagemPerfil.setBorder(null);
-
-    rolagemPerfil.setBounds(150, 80, 1150, 1338);
-
-jPanel2.add(
-    rolagemPerfil,
-    new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 1150, 900)
-);
-    jPainelFundo.setPreferredSize(
-        new java.awt.Dimension(870, 1510)
-    );
-
-    jPanel2.revalidate();
-    jPanel2.repaint();
-}
-
 // 3. Método visual que você já possui
   
         
