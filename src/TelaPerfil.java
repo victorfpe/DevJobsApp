@@ -50,12 +50,13 @@ public class TelaPerfil extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -190,7 +191,7 @@ public class TelaPerfil extends javax.swing.JFrame {
         jPanel2.add(MeuPerflBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 130, 50));
 
         jPainelFundo.setBackground(new java.awt.Color(255, 255, 255));
-        jPainelFundo.setPreferredSize(new java.awt.Dimension(994, 1228));
+        jPainelFundo.setPreferredSize(new java.awt.Dimension(1000, 1800));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -238,9 +239,6 @@ public class TelaPerfil extends javax.swing.JFrame {
         jLabel33.setOpaque(true);
         jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 28, 28));
 
-        jLabel1.setText("Disponivel para oportunidades");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
-
         jButton1.setText("Editar Perfil");
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 110, -1));
 
@@ -256,6 +254,29 @@ public class TelaPerfil extends javax.swing.JFrame {
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/icons8-message-50.png"))); // NOI18N
         jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(0, 255, 51));
+        jPanel3.setForeground(new java.awt.Color(0, 255, 51));
+
+        jLabel1.setText("Disponivel para oportunidades");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 2, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 210, 20));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -299,14 +320,14 @@ public class TelaPerfil extends javax.swing.JFrame {
                 jPasswordField5ActionPerformed(evt);
             }
         });
-        jPanel6.add(jPasswordField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 360, 30));
+        jPanel6.add(jPasswordField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 370, 30));
 
         jPasswordField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField6ActionPerformed(evt);
             }
         });
-        jPanel6.add(jPasswordField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 560, 80));
+        jPanel6.add(jPasswordField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 710, 80));
 
         jLabel39.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
         jLabel39.setText("Tipo de Trabalho*");
@@ -321,14 +342,14 @@ public class TelaPerfil extends javax.swing.JFrame {
                 jPasswordField7ActionPerformed(evt);
             }
         });
-        jPanel6.add(jPasswordField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 310, 30));
+        jPanel6.add(jPasswordField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 320, 30));
 
         jPasswordField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField8ActionPerformed(evt);
             }
         });
-        jPanel6.add(jPasswordField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 310, 30));
+        jPanel6.add(jPasswordField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 320, 30));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -368,7 +389,7 @@ public class TelaPerfil extends javax.swing.JFrame {
                 jPasswordField9ActionPerformed(evt);
             }
         });
-        jPanel7.add(jPasswordField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 360, 30));
+        jPanel7.add(jPasswordField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 370, 30));
 
         jLabel42.setFont(new java.awt.Font("Noto Sans", 0, 15)); // NOI18N
         jLabel42.setText("Frameworks e Tecnologias*");
@@ -383,14 +404,14 @@ public class TelaPerfil extends javax.swing.JFrame {
                 jPasswordField11ActionPerformed(evt);
             }
         });
-        jPanel7.add(jPasswordField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 310, 30));
+        jPanel7.add(jPasswordField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 320, 30));
 
         jPasswordField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField12ActionPerformed(evt);
             }
         });
-        jPanel7.add(jPasswordField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 310, 30));
+        jPanel7.add(jPasswordField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 320, 30));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -441,7 +462,7 @@ public class TelaPerfil extends javax.swing.JFrame {
                 jPasswordField14ActionPerformed(evt);
             }
         });
-        jPanel8.add(jPasswordField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 360, 30));
+        jPanel8.add(jPasswordField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 370, 30));
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -455,7 +476,7 @@ public class TelaPerfil extends javax.swing.JFrame {
         jLabel51.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(153, 153, 153));
         jLabel51.setText("Meu Repositorio");
-        jPanel9.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 90, -1));
+        jPanel9.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 90, -1));
 
         jLabel54.setBackground(new java.awt.Color(19, 81, 180));
         jLabel54.setForeground(new java.awt.Color(255, 255, 255));
@@ -466,24 +487,24 @@ public class TelaPerfil extends javax.swing.JFrame {
         jPanel9.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 28, 28));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/icons8-github-48.png"))); // NOI18N
-        jPanel9.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        jPanel9.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 50, 50));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/icons8-linkedin-48.png"))); // NOI18N
-        jPanel9.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+        jPanel9.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/icons8-windows-11-48.png"))); // NOI18N
-        jPanel9.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
+        jPanel9.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, 40));
 
         jLabel14.setText("GitHub");
-        jPanel9.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 50, -1));
+        jPanel9.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 50, -1));
 
         jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(153, 153, 153));
         jLabel15.setText("Meu Portifolio");
-        jPanel9.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 90, 15));
+        jPanel9.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 90, 15));
 
         jLabel16.setText("Linkedin");
-        jPanel9.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
+        jPanel9.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(153, 153, 153));
@@ -491,12 +512,12 @@ public class TelaPerfil extends javax.swing.JFrame {
         jPanel9.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 500, 15));
 
         jLabel20.setText("Portifolio");
-        jPanel9.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+        jPanel9.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Ubuntu", 0, 11)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(153, 153, 153));
         jLabel22.setText("Minha Rede");
-        jPanel9.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 70, 15));
+        jPanel9.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 70, 15));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -1019,6 +1040,7 @@ private void animarRolagem(int destino) {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
