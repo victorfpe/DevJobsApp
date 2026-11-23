@@ -212,7 +212,7 @@ estilizarBotaoMenu(jButton5, azulEscuro); // Sair
         jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1276, 1176));
+        setPreferredSize(new java.awt.Dimension(1200, 1176));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(12, 50, 111));
@@ -281,7 +281,7 @@ estilizarBotaoMenu(jButton5, azulEscuro); // Sair
         });
         jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 130, 50));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, 1123));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 1123));
 
         jPanel4.setBackground(new java.awt.Color(18, 81, 180));
         jPanel4.setPreferredSize(new java.awt.Dimension(1080, 80));
@@ -305,7 +305,7 @@ estilizarBotaoMenu(jButton5, azulEscuro); // Sair
                         .addGap(6, 6, 6)
                         .addComponent(jLabel4))
                     .addComponent(jLabel3))
-                .addContainerGap(674, Short.MAX_VALUE))
+                .addContainerGap(664, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,7 +317,7 @@ estilizarBotaoMenu(jButton5, azulEscuro); // Sair
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 0, 1070, -1));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 1060, -1));
 
         cardFiltros.setBackground(new java.awt.Color(255, 255, 255));
         cardFiltros.setForeground(new java.awt.Color(204, 204, 204));
@@ -406,12 +406,12 @@ estilizarBotaoMenu(jButton5, azulEscuro); // Sair
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        getContentPane().add(cardFiltros, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 1060, -1));
+        getContentPane().add(cardFiltros, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 1060, -1));
 
         Resultado.setFont(new java.awt.Font("Noto Sans", 1, 13)); // NOI18N
         Resultado.setForeground(new java.awt.Color(27, 27, 27));
         Resultado.setText("4 vagas encontradas");
-        getContentPane().add(Resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 224, -1, -1));
+        getContentPane().add(Resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
         painelListaVagas.setBackground(new java.awt.Color(240, 240, 240));
         painelListaVagas.setPreferredSize(new java.awt.Dimension(1040, 150));
@@ -731,7 +731,7 @@ estilizarBotaoMenu(jButton5, azulEscuro); // Sair
             painelListaVagasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelListaVagasLayout.createSequentialGroup()
                 .addComponent(cardVagaJava, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -744,7 +744,7 @@ estilizarBotaoMenu(jButton5, azulEscuro); // Sair
 
         jScrollPane1.setViewportView(painelListaVagas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 1060, 650));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 1060, 650));
 
         getAccessibleContext().setAccessibleName("DevJobs - Vagas em Foz do Iguaçu");
 

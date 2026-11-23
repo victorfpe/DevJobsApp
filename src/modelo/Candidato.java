@@ -13,6 +13,8 @@ public class Candidato {
     private String cpf;
     private String nascimento;
     private String email;
+    private String emailAcesso;
+    private String senha;
     private String telefone;
     private String sexualidade;
 
@@ -232,4 +234,21 @@ public class Candidato {
     public void setLinkedin(String linkedin) {
         this.linkedin = linkedin;
     }
+    
+    public String getEmailAcesso() {
+    return emailAcesso;
+}
+
+public void setEmailAcesso(String emailAcesso) {
+    this.emailAcesso = emailAcesso;
+}
+
+public String getSenha() {
+    return senha;
+}
+
+public void setSenha(String senha) {
+    this.senha = senha;
+}
+
 }

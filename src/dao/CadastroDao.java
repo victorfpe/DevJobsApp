@@ -26,6 +26,7 @@ public class CadastroDao implements DaoGenerica<Cadastro> {
 
     @Override
     public void inserir(Cadastro cadastro) {
+        
     }
 
     @Override
@@ -52,4 +53,51 @@ public class CadastroDao implements DaoGenerica<Cadastro> {
     public ArrayList<Cadastro> dashboard() {
         return new ArrayList<>();
     }
+    
+    public String buscarSenhaPorEmail(String emailAcesso) {
+
+    ConexaoBanco conexaoBanco = new ConexaoBanco();
+
+    if (!conexaoBanco.conectar()) {
+        return null;
+    }
+
+    String sql = "SELECT senha FROM candidato WHERE email_acesso = ?";
+
+    try {
+
+        Connection conexao = conexaoBanco.getConnection();
+
+        PreparedStatement comando = conexao.prepareStatement(sql);
+
+        comando.setString(1, emailAcesso);
+
+        ResultSet resultado = comando.executeQuery();
+
+        if (resultado.next()) {
+
+            String senhaHash = resultado.getString("senha");
+
+            resultado.close();
+            comando.close();
+            conexao.close();
+
+            return senhaHash;
+        }
+
+        resultado.close();
+        comando.close();
+        conexao.close();
+
+        return null;
+
+    } catch (SQLException e) {
+
+        e.printStackTrace();
+        return null;
+    }
 }
+   
+}
+
+

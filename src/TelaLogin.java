@@ -15,6 +15,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GradientPaint;
 import java.awt.RenderingHints;
+import dao.CadastroDao;
+import modelo.Candidato;
+import dao.CandidatoDao;
 
 
 public class TelaLogin extends javax.swing.JFrame {
@@ -22,14 +25,15 @@ public class TelaLogin extends javax.swing.JFrame {
     /**
      * Creates new form TelaLogin
      */
-    public TelaLogin() {
+   public TelaLogin() {
+
     setUndecorated(true);
     setBackground(new Color(0, 0, 0, 0));
 
     initComponents();
     aplicarVisualModerno();
-}
-
+   }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,6 +57,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        botaoLogin = new javax.swing.JButton();
         jPainelDireito = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
 
@@ -81,6 +86,11 @@ public class TelaLogin extends javax.swing.JFrame {
         jCandidatoBotao.setBackground(new java.awt.Color(12, 50, 111));
         jCandidatoBotao.setForeground(new java.awt.Color(255, 255, 255));
         jCandidatoBotao.setText("CANDIDATO");
+        jCandidatoBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCandidatoBotaoActionPerformed(evt);
+            }
+        });
         jPainelEsquerdo.add(jCandidatoBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 190, 45));
 
         jEmpresaBotao.setForeground(new java.awt.Color(120, 120, 120));
@@ -115,6 +125,16 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         jPainelEsquerdo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 395, 20));
+
+        botaoLogin.setBackground(new java.awt.Color(12, 50, 111));
+        botaoLogin.setForeground(new java.awt.Color(255, 255, 255));
+        botaoLogin.setText("LOGIN");
+        botaoLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLoginActionPerformed(evt);
+            }
+        });
+        jPainelEsquerdo.add(botaoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 390, 40));
 
         jPainelFundo.add(jPainelEsquerdo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 550, 710));
 
@@ -158,6 +178,14 @@ public class TelaLogin extends javax.swing.JFrame {
      cadastro.setLocationRelativeTo(null);
      cadastro.setVisible(true);
       this.dispose();    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void botaoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLoginActionPerformed
+      realizarLogin();
+    }//GEN-LAST:event_botaoLoginActionPerformed
+
+    private void jCandidatoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCandidatoBotaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCandidatoBotaoActionPerformed
       
 private void aplicarVisualModerno() {
     Color azul = new Color(19, 81, 180);
@@ -195,6 +223,17 @@ private void aplicarVisualModerno() {
     jCandidatoBotao.setCursor(
         new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)
     );
+    
+   botaoLogin.setFont(new java.awt.Font(
+    "Ubuntu", java.awt.Font.BOLD, 13
+));
+botaoLogin.setBackground(azulEscuro);
+botaoLogin.setForeground(Color.WHITE);
+botaoLogin.setFocusPainted(false);
+botaoLogin.setBorderPainted(false);
+botaoLogin.setCursor(
+    new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)
+);
 
     jEmpresaBotao.setFont(new java.awt.Font(
         "Ubuntu", java.awt.Font.BOLD, 13
@@ -306,6 +345,95 @@ private void aplicarVisualModerno() {
     getContentPane().setBackground(Color.WHITE);
 }
 
+private void realizarLogin() {
+
+    String email = jTextField1.getText().trim();
+
+    char[] senhaDigitada = jPasswordField1.getPassword();
+
+    if (email.isEmpty() || senhaDigitada.length == 0) {
+        JOptionPane.showMessageDialog(
+                this,
+                "Preencha o e-mail e a senha.",
+                "Atenção",
+                JOptionPane.WARNING_MESSAGE
+        );
+        return;
+    }
+
+    CadastroDao cadastroDao = new CadastroDao();
+
+    String senhaArmazenada = cadastroDao.buscarSenhaPorEmail(email);
+
+    if (senhaArmazenada == null) {
+        JOptionPane.showMessageDialog(
+                this,
+                "E-mail ou senha incorretos.",
+                "Erro de login",
+                JOptionPane.ERROR_MESSAGE
+        );
+        return;
+    }
+
+    String senhaHash = gerarHashSenha(new String(senhaDigitada));
+
+    if (senhaHash.equals(senhaArmazenada)) {
+
+        CandidatoDao candidatoDao = new CandidatoDao();
+
+        Candidato candidato = candidatoDao.buscarPorEmailAcesso(email);
+
+        if (candidato == null) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Não foi possível carregar os dados do candidato.",
+                    "Erro",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+        TelaPerfil telaPerfil = new TelaPerfil(candidato);
+
+        telaPerfil.setLocationRelativeTo(null);
+        telaPerfil.setVisible(true);
+
+        this.dispose();
+
+    } else {
+        JOptionPane.showMessageDialog(
+                this,
+                "E-mail ou senha incorretos.",
+                "Erro de login",
+                JOptionPane.ERROR_MESSAGE
+        );
+    }
+}
+
+private String gerarHashSenha(String senha) {
+
+    try {
+
+        java.security.MessageDigest md =
+                java.security.MessageDigest.getInstance("SHA-256");
+
+        byte[] hash = md.digest(
+                senha.getBytes(java.nio.charset.StandardCharsets.UTF_8)
+        );
+
+        StringBuilder resultado = new StringBuilder();
+
+        for (byte b : hash) {
+            resultado.append(String.format("%02x", b));
+        }
+
+        return resultado.toString();
+
+    } catch (java.security.NoSuchAlgorithmException e) {
+
+        throw new RuntimeException(e);
+    }
+}
     /**
      * @param args the command line arguments
      */
@@ -342,6 +470,7 @@ private void aplicarVisualModerno() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoLogin;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jCandidatoBotao;
     private javax.swing.JButton jEmpresaBotao;

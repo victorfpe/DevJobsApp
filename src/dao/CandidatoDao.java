@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import modelo.Candidato;
+import java.sql.ResultSet;
 
 /**
  *
@@ -27,9 +28,10 @@ public class CandidatoDao {
                 + "cep, logradouro, numero, complemento, bairro, cidade, uf, "
                 + "curso, instituicao, escolaridade, cargo_desejado, "
                 + "area_interesse, nivel_profissional, tipo_trabalho, "
-                + "resumo, linguagens, github, linkedin"
+                + "resumo, linguagens, github, linkedin, "
+                + "email_acesso, senha"
                 + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
-                + "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection conexao = conexaoBanco.getConnection();
@@ -64,6 +66,8 @@ public class CandidatoDao {
 
             comando.setString(23, candidato.getGithub());
             comando.setString(24, candidato.getLinkedin());
+            comando.setString(25, candidato.getEmailAcesso());
+            comando.setString(26, candidato.getSenha());
 
             int resultado = comando.executeUpdate();
 
@@ -84,4 +88,77 @@ public class CandidatoDao {
        }
   
     } 
+    
+    public Candidato buscarPorEmailAcesso(String emailAcesso) {
+
+    ConexaoBanco conexaoBanco = new ConexaoBanco();
+
+    if (!conexaoBanco.conectar()) {
+        return null;
+    }
+
+    String sql = "SELECT * FROM candidato WHERE email_acesso = ?";
+
+    try {
+        Connection conexao = conexaoBanco.getConnection();
+
+        PreparedStatement comando = conexao.prepareStatement(sql);
+        comando.setString(1, emailAcesso);
+
+        ResultSet resultado = comando.executeQuery();
+
+        if (resultado.next()) {
+
+            Candidato candidato = new Candidato();
+
+            candidato.setNome(resultado.getString("nome"));
+            candidato.setCpf(resultado.getString("cpf"));
+            candidato.setNascimento(resultado.getString("nascimento"));
+            candidato.setEmail(resultado.getString("email"));
+            candidato.setTelefone(resultado.getString("telefone"));
+            candidato.setSexualidade(resultado.getString("sexualidade"));
+
+            candidato.setCep(resultado.getString("cep"));
+            candidato.setLogradouro(resultado.getString("logradouro"));
+            candidato.setNumero(resultado.getString("numero"));
+            candidato.setComplemento(resultado.getString("complemento"));
+            candidato.setBairro(resultado.getString("bairro"));
+            candidato.setCidade(resultado.getString("cidade"));
+            candidato.setUf(resultado.getString("uf"));
+
+            candidato.setCurso(resultado.getString("curso"));
+            candidato.setInstituicao(resultado.getString("instituicao"));
+            candidato.setEscolaridade(resultado.getString("escolaridade"));
+
+            candidato.setCargoDesejado(resultado.getString("cargo_desejado"));
+            candidato.setAreaInteresse(resultado.getString("area_interesse"));
+            candidato.setNivelProfissional(resultado.getString("nivel_profissional"));
+            candidato.setTipoTrabalho(resultado.getString("tipo_trabalho"));
+            candidato.setResumo(resultado.getString("resumo"));
+            candidato.setLinguagens(resultado.getString("linguagens"));
+
+            candidato.setGithub(resultado.getString("github"));
+            candidato.setLinkedin(resultado.getString("linkedin"));
+
+            candidato.setEmailAcesso(resultado.getString("email_acesso"));
+
+            resultado.close();
+            comando.close();
+            conexao.close();
+
+            return candidato;
+        }
+
+        resultado.close();
+        comando.close();
+        conexao.close();
+
+        return null;
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return null;
+    }
+}
+    
 }

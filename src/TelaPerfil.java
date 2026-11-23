@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import modelo.Candidato;
+
 /**
  *
  * @author f3l1p3
@@ -231,9 +233,9 @@ public class TelaPerfil extends javax.swing.JFrame {
         jLabel21.setText("Foz do Iguacu*");
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, 110, 20));
 
-        jLabel33.setBackground(new java.awt.Color(19, 81, 180));
+        jLabel33.setBackground(new java.awt.Color(255, 255, 255));
         jLabel33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel33.setText("1");
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/user-round.png"))); // NOI18N
         jLabel33.setMaximumSize(new java.awt.Dimension(15, 15));
         jLabel33.setMinimumSize(new java.awt.Dimension(28, 28));
         jLabel33.setOpaque(true);
@@ -242,18 +244,18 @@ public class TelaPerfil extends javax.swing.JFrame {
         jButton1.setText("Editar Perfil");
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 110, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/icons8-user-30.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/user-round.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, -1));
         jLabel2.getAccessibleContext().setAccessibleName("");
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/icons8-location-24.png"))); // NOI18N
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/map-pin.png"))); // NOI18N
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
 
-        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/icons8-phone-30.png"))); // NOI18N
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/phone.png"))); // NOI18N
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, -1));
 
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/icons8-message-50.png"))); // NOI18N
-        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/mail.png"))); // NOI18N
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(0, 255, 51));
         jPanel3.setForeground(new java.awt.Color(0, 255, 51));
@@ -307,9 +309,9 @@ public class TelaPerfil extends javax.swing.JFrame {
         jLabel38.setText("Resumo Profissional*");
         jPanel6.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 200, 20));
 
-        jLabel47.setBackground(new java.awt.Color(19, 81, 180));
+        jLabel47.setBackground(new java.awt.Color(255, 255, 255));
         jLabel47.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel47.setText("2");
+        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/briefcase-business.png"))); // NOI18N
         jLabel47.setMaximumSize(new java.awt.Dimension(15, 15));
         jLabel47.setMinimumSize(new java.awt.Dimension(28, 28));
         jLabel47.setOpaque(true);
@@ -376,8 +378,9 @@ public class TelaPerfil extends javax.swing.JFrame {
         jLabel40.setText("Escolaridade*");
         jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 200, 20));
 
-        jLabel48.setBackground(new java.awt.Color(19, 81, 180));
+        jLabel48.setBackground(new java.awt.Color(255, 255, 255));
         jLabel48.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/graduation-cap.png"))); // NOI18N
         jLabel48.setText("3");
         jLabel48.setMaximumSize(new java.awt.Dimension(15, 15));
         jLabel48.setMinimumSize(new java.awt.Dimension(28, 28));
@@ -438,9 +441,9 @@ public class TelaPerfil extends javax.swing.JFrame {
         jLabel43.setText("Cursos Realizados*");
         jPanel8.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 200, 20));
 
-        jLabel49.setBackground(new java.awt.Color(19, 81, 180));
+        jLabel49.setBackground(new java.awt.Color(255, 255, 255));
         jLabel49.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel49.setText("4");
+        jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/clipboard-list.png"))); // NOI18N
         jLabel49.setMaximumSize(new java.awt.Dimension(15, 15));
         jLabel49.setMinimumSize(new java.awt.Dimension(28, 28));
         jLabel49.setOpaque(true);
@@ -478,9 +481,9 @@ public class TelaPerfil extends javax.swing.JFrame {
         jLabel51.setText("Meu Repositorio");
         jPanel9.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 90, -1));
 
-        jLabel54.setBackground(new java.awt.Color(19, 81, 180));
+        jLabel54.setBackground(new java.awt.Color(255, 255, 255));
         jLabel54.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel54.setText("5");
+        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/globe-code.png"))); // NOI18N
         jLabel54.setMaximumSize(new java.awt.Dimension(15, 15));
         jLabel54.setMinimumSize(new java.awt.Dimension(28, 28));
         jLabel54.setOpaque(true);
@@ -533,9 +536,9 @@ public class TelaPerfil extends javax.swing.JFrame {
         jLabel53.setText("Login do candidato");
         jPanel10.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 500, 15));
 
-        jLabel57.setBackground(new java.awt.Color(19, 81, 180));
+        jLabel57.setBackground(new java.awt.Color(255, 255, 255));
         jLabel57.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel57.setText("6");
+        jLabel57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/monitor-check.png"))); // NOI18N
         jLabel57.setMaximumSize(new java.awt.Dimension(15, 15));
         jLabel57.setMinimumSize(new java.awt.Dimension(28, 28));
         jLabel57.setOpaque(true);
@@ -780,7 +783,7 @@ for (javax.swing.JLabel rotulo : rotulos) {
     for (javax.swing.JLabel indicador : indicadores) {
         indicador.setFont(fonteNegrito);
         indicador.setForeground(branco);
-        indicador.setBackground(azul);
+        indicador.setBackground(branco);
         indicador.setHorizontalAlignment(
             javax.swing.SwingConstants.CENTER
         );
@@ -974,7 +977,54 @@ private void animarRolagem(int destino) {
             }
         });
     }
+    
+    public TelaPerfil(Candidato candidato) {
+    initComponents();
+    this.setEnabled(true);
+    aplicarVisualModerno();
+    configurarRolagem();
 
+    preencherDados(candidato);
+}
+
+    private void preencherDados(Candidato candidato) {
+
+    if (candidato == null) {
+        return;
+    }
+
+    // DADOS PESSOAIS
+    jLabel8.setText(candidato.getNome());
+    jLabel17.setText(candidato.getEmail());
+    jLabel18.setText(candidato.getTelefone());
+    jLabel21.setText(candidato.getCidade());
+
+    // PERFIL PROFISSIONAL
+    jTextField4.setText(candidato.getCargoDesejado());
+
+    jPasswordField5.setEchoChar((char) 0);
+    jPasswordField5.setText(candidato.getNivelProfissional());
+
+    jPasswordField6.setEchoChar((char) 0);
+    jPasswordField6.setText(candidato.getResumo());
+
+    jPasswordField7.setEchoChar((char) 0);
+    jPasswordField7.setText(candidato.getTipoTrabalho());
+
+    jPasswordField8.setEchoChar((char) 0);
+    jPasswordField8.setText(candidato.getAreaInteresse());
+
+    // FORMAÇÃO
+    jTextField5.setText(candidato.getCurso());
+
+    jPasswordField9.setEchoChar((char) 0);
+    jPasswordField9.setText(candidato.getEscolaridade());
+
+    // LINGUAGENS
+    jPasswordField12.setEchoChar((char) 0);
+    jPasswordField12.setText(candidato.getLinguagens());
+
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton InicioBotao;
     private javax.swing.JButton MeuPerflBotao;
