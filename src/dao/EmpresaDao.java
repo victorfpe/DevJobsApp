@@ -124,6 +124,8 @@ public class EmpresaDao {
 
                 empresa.setEmailAcesso(resultado.getString("email_acesso"));
                 empresa.setSenha(resultado.getString("senha"));
+                
+                empresa.setIdEmpresa(resultado.getInt("id_empresa"));
 
                 resultado.close();
                 stmt.close();

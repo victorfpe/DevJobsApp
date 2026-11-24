@@ -18,21 +18,28 @@ import java.awt.RenderingHints;
 import dao.CadastroDao;
 import modelo.Candidato;
 import dao.CandidatoDao;
+import modelo.Empresa;
+import dao.EmpresaDao;
 
 
 public class TelaLogin extends javax.swing.JFrame {
+    private boolean modoEmpresa = false;
 
     /**
      * Creates new form TelaLogin
      */
-   public TelaLogin() {
+  public TelaLogin() {
 
     setUndecorated(true);
     setBackground(new Color(0, 0, 0, 0));
 
     initComponents();
     aplicarVisualModerno();
-   }
+
+    alternarModoLogin(false);
+
+    
+}
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,6 +102,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jEmpresaBotao.setForeground(new java.awt.Color(120, 120, 120));
         jEmpresaBotao.setText("EMPRESA");
+        jEmpresaBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEmpresaBotaoActionPerformed(evt);
+            }
+        });
         jPainelEsquerdo.add(jEmpresaBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 190, 45));
         jPainelEsquerdo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 390, 5));
 
@@ -174,9 +186,17 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-      TelaCadastro cadastro = new TelaCadastro();
-     cadastro.setLocationRelativeTo(null);
-     cadastro.setVisible(true);
+          if (modoEmpresa) {
+        TelaLoginEmpresa cadastro = new TelaLoginEmpresa();
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    } else {
+        TelaCadastro cadastro = new TelaCadastro();
+        cadastro.setLocationRelativeTo(null);
+        cadastro.setVisible(true);
+    }
+
+   
       this.dispose();    }//GEN-LAST:event_jLabel6MouseClicked
 
     private void botaoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLoginActionPerformed
@@ -184,8 +204,12 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoLoginActionPerformed
 
     private void jCandidatoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCandidatoBotaoActionPerformed
-        // TODO add your handling code here:
+          alternarModoLogin(false);
+
     }//GEN-LAST:event_jCandidatoBotaoActionPerformed
+
+    private void jEmpresaBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEmpresaBotaoActionPerformed
+         alternarModoLogin(true);    }//GEN-LAST:event_jEmpresaBotaoActionPerformed
       
 private void aplicarVisualModerno() {
     Color azul = new Color(19, 81, 180);
@@ -347,7 +371,7 @@ botaoLogin.setCursor(
 
 private void realizarLogin() {
 
-    String email = jTextField1.getText().trim();
+   String email = jTextField1.getText().trim();
 
     char[] senhaDigitada = jPasswordField1.getPassword();
 
@@ -361,6 +385,38 @@ private void realizarLogin() {
         return;
     }
 
+    // LOGIN DA EMPRESA
+    if (modoEmpresa) {
+
+        EmpresaDao empresaDao = new EmpresaDao();
+
+        Empresa empresa = empresaDao.buscarPorEmailAcesso(email);
+String senhaHash = gerarHashSenha(new String(senhaDigitada));
+
+if (empresa != null &&
+    senhaHash.equals(empresa.getSenha())) {
+
+            TelaPerfilEmpresa tela = new TelaPerfilEmpresa(empresa);
+
+            tela.setLocationRelativeTo(null);
+            tela.setVisible(true);
+
+            this.dispose();
+
+        } else {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "E-mail ou senha incorretos.",
+                    "Erro de login",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+
+        return;
+    }
+
+    // LOGIN DO CANDIDATO (MANTIDO)
     CadastroDao cadastroDao = new CadastroDao();
 
     String senhaArmazenada = cadastroDao.buscarSenhaPorEmail(email);
@@ -401,6 +457,7 @@ private void realizarLogin() {
         this.dispose();
 
     } else {
+
         JOptionPane.showMessageDialog(
                 this,
                 "E-mail ou senha incorretos.",
@@ -409,7 +466,6 @@ private void realizarLogin() {
         );
     }
 }
-
 private String gerarHashSenha(String senha) {
 
     try {
@@ -432,6 +488,36 @@ private String gerarHashSenha(String senha) {
     } catch (java.security.NoSuchAlgorithmException e) {
 
         throw new RuntimeException(e);
+    }
+}
+
+private void alternarModoLogin(boolean empresa) {
+
+    modoEmpresa = empresa;
+
+    if (empresa) {
+
+        jLabel3.setText("E-mail empresa");
+        jLabel4.setText("Senha de acesso");
+        botaoLogin.setText("LOGIN COMO EMPRESA");
+
+        jEmpresaBotao.setBackground(new Color(12, 50, 111));
+        jEmpresaBotao.setForeground(Color.WHITE);
+
+        jCandidatoBotao.setBackground(new Color(248, 250, 253));
+        jCandidatoBotao.setForeground(new Color(12, 50, 111));
+
+    } else {
+        
+        jLabel3.setText("E-mail do candidato");
+        jLabel4.setText("Senha de acesso");
+        botaoLogin.setText("LOGIN COMO CANDIDATO");
+
+        jCandidatoBotao.setBackground(new Color(12, 50, 111));
+        jCandidatoBotao.setForeground(Color.WHITE);
+
+        jEmpresaBotao.setBackground(new Color(248, 250, 253));
+        jEmpresaBotao.setForeground(new Color(12, 50, 111));
     }
 }
     /**
@@ -468,6 +554,8 @@ private String gerarHashSenha(String senha) {
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoLogin;

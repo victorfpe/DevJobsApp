@@ -121,8 +121,8 @@ public class TelaPerfil extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(990, 1450));
-        setPreferredSize(new java.awt.Dimension(1000, 1800));
+        setMinimumSize(new java.awt.Dimension(1300, 1800));
+        setPreferredSize(new java.awt.Dimension(1300, 1800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(12, 50, 111));
@@ -194,6 +194,7 @@ public class TelaPerfil extends javax.swing.JFrame {
 
         jPainelFundo.setBackground(new java.awt.Color(255, 255, 255));
         jPainelFundo.setPreferredSize(new java.awt.Dimension(1000, 1800));
+        jPainelFundo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -280,6 +281,8 @@ public class TelaPerfil extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 210, 20));
 
+        jPainelFundo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 806, 227));
+
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -353,6 +356,8 @@ public class TelaPerfil extends javax.swing.JFrame {
         });
         jPanel6.add(jPasswordField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 320, 30));
 
+        jPainelFundo.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 233, 806, 319));
+
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -416,6 +421,8 @@ public class TelaPerfil extends javax.swing.JFrame {
         });
         jPanel7.add(jPasswordField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 320, 30));
 
+        jPainelFundo.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 558, 806, 197));
+
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -466,6 +473,8 @@ public class TelaPerfil extends javax.swing.JFrame {
             }
         });
         jPanel8.add(jPasswordField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 370, 30));
+
+        jPainelFundo.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 761, 400, 280));
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -522,6 +531,8 @@ public class TelaPerfil extends javax.swing.JFrame {
         jLabel22.setText("Minha Rede");
         jPanel9.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 70, 15));
 
+        jPainelFundo.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 761, 400, 280));
+
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -560,45 +571,8 @@ public class TelaPerfil extends javax.swing.JFrame {
 
         jPanel10.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 790, 110));
 
-        javax.swing.GroupLayout jPainelFundoLayout = new javax.swing.GroupLayout(jPainelFundo);
-        jPainelFundo.setLayout(jPainelFundoLayout);
-        jPainelFundoLayout.setHorizontalGroup(
-            jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPainelFundoLayout.createSequentialGroup()
-                .addGroup(jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPainelFundoLayout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-        jPainelFundoLayout.setVerticalGroup(
-            jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPainelFundoLayout.createSequentialGroup()
-                .addGroup(jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPainelFundoLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPainelFundoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 1203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(863, Short.MAX_VALUE))
-        );
+        jPainelFundo.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1047, 806, 390));
+        jPainelFundo.add(jScrollBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(812, 6, -1, 1203));
 
         jPanel2.add(jPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 830, 2300));
 

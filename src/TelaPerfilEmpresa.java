@@ -3,19 +3,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import modelo.Empresa;
+
 /**
  *
  * @author f3l1p3
  */
 public class TelaPerfilEmpresa extends javax.swing.JFrame {
+    private Empresa empresaLogada;
 
     /**
      * Creates new form TelaPerfilEmpresa
+     * 
+     *
      */
-   public TelaPerfilEmpresa() {
+    
+    public TelaPerfilEmpresa() {
+    this(null);
+}
+public TelaPerfilEmpresa(Empresa empresa) {
     initComponents();
+    this.empresaLogada = empresa;
     aplicarVisualModerno();
     preencherTabelaTeste();
+    configurarScroll();
+
+
+    if (empresa != null) {
+        jLabel7.setText(empresa.getNomeFantasia());
+        jLabel8.setText(empresa.getAreaAtuacao());
+        jLabel17.setText(empresa.getEmail());
+        jLabel18.setText(empresa.getTelefone());
+        jLabel21.setText(empresa.getCidade() + " - " + empresa.getUf());
+        jTextArea1.setText(empresa.getDescricao());
+    }
 }
 
     private void preencherTabelaTeste() {
@@ -61,6 +82,7 @@ public class TelaPerfilEmpresa extends javax.swing.JFrame {
         VagasBotao = new javax.swing.JButton();
         MeuPerflBotao = new javax.swing.JButton();
         jPainelFundo = new javax.swing.JPanel();
+        jScrollBar1 = new javax.swing.JScrollBar();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -103,13 +125,11 @@ public class TelaPerfilEmpresa extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
-        jScrollBar1 = new javax.swing.JScrollBar();
         jAlterarFoto = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 1800));
 
         jPanel2.setBackground(new java.awt.Color(12, 50, 111));
         jPanel2.setMaximumSize(new java.awt.Dimension(1300, 2500));
@@ -392,6 +412,11 @@ public class TelaPerfilEmpresa extends javax.swing.JFrame {
         jPanel10.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 770, 150));
 
         jButton3.setText("+ Cadastrar nova vaga");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel10.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 660, 40));
 
         javax.swing.GroupLayout jPainelFundoLayout = new javax.swing.GroupLayout(jPainelFundo);
@@ -491,40 +516,61 @@ public class TelaPerfilEmpresa extends javax.swing.JFrame {
         // TODO add your handling code here:
         }
         private void aplicarVisualModerno() {
-
-             // PALETA DE CORES DEVJOBS
+    // PALETA DE CORES DEVJOBS
     java.awt.Color azul = new java.awt.Color(19, 81, 180);
     java.awt.Color azulEscuro = new java.awt.Color(12, 50, 111);
     java.awt.Color fundo = new java.awt.Color(245, 247, 251);
     java.awt.Color branco = java.awt.Color.WHITE;
     java.awt.Color texto = new java.awt.Color(40, 50, 65);
     java.awt.Color cinza = new java.awt.Color(120, 130, 145);
+    java.awt.Color borda = new java.awt.Color(220, 226, 235);
 
-    java.awt.Font fonte = new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 13);
-    java.awt.Font fonteNegrito = new java.awt.Font("Ubuntu", java.awt.Font.BOLD, 13);
-    java.awt.Font titulo = new java.awt.Font("Ubuntu", java.awt.Font.BOLD, 17);
-    java.awt.Font subtitulo = new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 11);
+    // TIPOGRAFIA
+    java.awt.Font fonte = new java.awt.Font(
+        "Ubuntu", java.awt.Font.PLAIN, 13
+    );
 
+    java.awt.Font fonteNegrito = new java.awt.Font(
+        "Ubuntu", java.awt.Font.BOLD, 13
+    );
+
+    java.awt.Font titulo = new java.awt.Font(
+        "Ubuntu", java.awt.Font.BOLD, 17
+    );
+
+    java.awt.Font subtitulo = new java.awt.Font(
+        "Ubuntu", java.awt.Font.PLAIN, 11
+    );
+
+    // FUNDOS
     getContentPane().setBackground(fundo);
 
-    // PAINÉIS
     jPanel2.setBackground(azulEscuro);
     jPainelFundo.setBackground(fundo);
-
-    jPanel1.setBackground(branco);
-    jPanel6.setBackground(branco);
-    jPanel8.setBackground(branco);
-    jPanel9.setBackground(branco);
-    jPanel10.setBackground(branco);
-
     jAlterarFoto.setBackground(azul);
 
+    // CARTÕES
+    javax.swing.JPanel[] paineis = {
+        jPanel1, jPanel6, jPanel8, jPanel9, jPanel10
+    };
+
+    for (javax.swing.JPanel painel : paineis) {
+        painel.setBackground(branco);
+        painel.setBorder(
+            javax.swing.BorderFactory.createLineBorder(borda, 1)
+        );
+    }
+
     // LOGO
-    jLogo.setFont(new java.awt.Font("Ubuntu", java.awt.Font.BOLD, 21));
+    jLogo.setFont(new java.awt.Font(
+        "Ubuntu", java.awt.Font.BOLD, 21
+    ));
     jLogo.setForeground(branco);
 
     jmensagemlogo.setFont(subtitulo);
-    jmensagemlogo.setForeground(new java.awt.Color(195, 210, 235));
+    jmensagemlogo.setForeground(
+        new java.awt.Color(195, 210, 235)
+    );
 
     // MENU LATERAL
     javax.swing.JButton[] botoesMenu = {
@@ -540,21 +586,34 @@ public class TelaPerfilEmpresa extends javax.swing.JFrame {
         botao.setFocusPainted(false);
         botao.setBorderPainted(false);
         botao.setOpaque(true);
+        botao.setCursor(
+            new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)
+        );
+        botao.setHorizontalAlignment(
+            javax.swing.SwingConstants.LEFT
+        );
     }
 
+    // MENU ATIVO
     InicioBotao.setBackground(azulEscuro);
     VagasBotao.setBackground(azulEscuro);
     MeuPerflBotao.setBackground(azul);
     SairBotao.setBackground(azulEscuro);
 
-    // TÍTULO PRINCIPAL
-    jLabel3.setFont(new java.awt.Font("Ubuntu", java.awt.Font.BOLD, 23));
-    jLabel3.setForeground(texto);
+    // CABEÇALHO PRINCIPAL
+    jLabel3.setFont(new java.awt.Font(
+        "Ubuntu", java.awt.Font.BOLD, 23
+    ));
+    jLabel3.setForeground(branco);
 
-    jLabel4.setFont(new java.awt.Font("Ubuntu", java.awt.Font.PLAIN, 12));
-    jLabel4.setForeground(cinza);
+    jLabel4.setFont(new java.awt.Font(
+        "Ubuntu", java.awt.Font.PLAIN, 12
+    ));
+    jLabel4.setForeground(
+        new java.awt.Color(225, 235, 250)
+    );
 
-    // TÍTULOS DOS PAINÉIS
+    // TÍTULOS DOS CARTÕES
     javax.swing.JLabel[] titulos = {
         jLabel7,
         jLabel28,
@@ -565,7 +624,7 @@ public class TelaPerfilEmpresa extends javax.swing.JFrame {
 
     for (javax.swing.JLabel label : titulos) {
         label.setFont(titulo);
-        label.setForeground(texto);
+        label.setForeground(azulEscuro);
     }
 
     // SUBTÍTULOS
@@ -597,52 +656,110 @@ public class TelaPerfilEmpresa extends javax.swing.JFrame {
         label.setForeground(texto);
     }
 
-    // NÚMEROS DOS INDICADORES
+    // INDICADORES
     jLabel41.setText("05");
-    jLabel41.setFont(new java.awt.Font("Ubuntu", java.awt.Font.BOLD, 36));
+    jLabel41.setFont(new java.awt.Font(
+        "Ubuntu", java.awt.Font.BOLD, 36
+    ));
     jLabel41.setForeground(azul);
-    jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    jLabel41.setHorizontalAlignment(
+        javax.swing.SwingConstants.CENTER
+    );
 
     jLabel42.setText("20");
-    jLabel42.setFont(new java.awt.Font("Ubuntu", java.awt.Font.BOLD, 36));
+    jLabel42.setFont(new java.awt.Font(
+        "Ubuntu", java.awt.Font.BOLD, 36
+    ));
     jLabel42.setForeground(azul);
-    jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    jLabel42.setHorizontalAlignment(
+        javax.swing.SwingConstants.CENTER
+    );
 
     // BOTÕES
+    javax.swing.JButton[] botoes = {
+        jButton1, jButton2, jButton3, jButton5
+    };
+
+    for (javax.swing.JButton botao : botoes) {
+        botao.setFont(fonteNegrito);
+        botao.setFocusPainted(false);
+        botao.setCursor(
+            new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR)
+        );
+    }
+
+    // BOTÃO EDITAR PERFIL
     jButton1.setBackground(azul);
     jButton1.setForeground(branco);
-    jButton1.setFont(fonteNegrito);
-    jButton1.setFocusPainted(false);
+    jButton1.setBorderPainted(false);
 
+    // BOTÃO GERENCIAMENTO
     jButton2.setBackground(azul);
     jButton2.setForeground(branco);
-    jButton2.setFont(fonteNegrito);
-    jButton2.setFocusPainted(false);
+    jButton2.setBorderPainted(false);
 
-    jButton5.setBackground(azul);
-    jButton5.setForeground(branco);
-    jButton5.setFont(fonteNegrito);
-    jButton5.setFocusPainted(false);
+    // BOTÃO ALTERAR FOTO
+    jButton5.setBackground(branco);
+    jButton5.setForeground(azulEscuro);
+    jButton5.setBorder(
+        javax.swing.BorderFactory.createLineBorder(borda)
+    );
 
-    // ÁREA DE TEXTO
+    // BOTÃO NOVA VAGA
+    jButton3.setBackground(azul);
+    jButton3.setForeground(branco);
+    jButton3.setBorderPainted(false);
+    jButton3.setFont(new java.awt.Font(
+        "Ubuntu", java.awt.Font.BOLD, 14
+    ));
+
+    // ÁREA SOBRE A EMPRESA
     jTextArea1.setFont(fonte);
     jTextArea1.setForeground(texto);
     jTextArea1.setBackground(branco);
+    jTextArea1.setCaretColor(azul);
+    jTextArea1.setLineWrap(true);
+    jTextArea1.setWrapStyleWord(true);
+
+    jScrollPane2.setBorder(
+        javax.swing.BorderFactory.createLineBorder(borda)
+    );
+    jScrollPane2.getViewport().setBackground(branco);
 
     // TABELA DE VAGAS
     jTable1.setFont(fonte);
     jTable1.setForeground(texto);
     jTable1.setBackground(branco);
-    jTable1.setGridColor(new java.awt.Color(230, 234, 240));
-    jTable1.setSelectionBackground(new java.awt.Color(220, 232, 250));
+    jTable1.setGridColor(borda);
+    jTable1.setSelectionBackground(
+        new java.awt.Color(220, 232, 250)
+    );
     jTable1.setSelectionForeground(texto);
-    jTable1.setRowHeight(30);
+    jTable1.setRowHeight(32);
+    jTable1.setShowVerticalLines(false);
 
     jTable1.getTableHeader().setFont(fonteNegrito);
-    jTable1.getTableHeader().setBackground(new java.awt.Color(235, 240, 248));
-    jTable1.getTableHeader().setForeground(texto);
+    jTable1.getTableHeader().setBackground(azulEscuro);
+    jTable1.getTableHeader().setForeground(branco);
+    jTable1.getTableHeader().setPreferredSize(
+        new java.awt.Dimension(0, 35)
+    );
 
+    jScrollPane1.setBorder(
+        javax.swing.BorderFactory.createLineBorder(borda)
+    );
     jScrollPane1.getViewport().setBackground(branco);
+
+    // SEPARADORES
+    jSeparator1.setForeground(borda);
+    jSeparator2.setForeground(borda);
+    
+    // CONFIGURAR BARRA DE ROLAGEM
+jScrollBar1.setMinimum(0);
+jScrollBar1.setMaximum(2300);
+jScrollBar1.setVisibleAmount(600);
+jScrollBar1.setUnitIncrement(30);
+jScrollBar1.setBlockIncrement(100);
 
     revalidate();
     repaint();
@@ -653,6 +770,26 @@ public class TelaPerfilEmpresa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    TelaNovaVaga tela = new TelaNovaVaga(empresaLogada);
+    tela.setLocationRelativeTo(null);
+    tela.setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+private void configurarScroll() {
+
+    jScrollBar1.addAdjustmentListener(e -> {
+
+        int valor = e.getValue();
+
+        jPainelFundo.setLocation(
+            150,
+            80 - valor
+        );
+
+    });
+
+}
     /**
      * @param args the command line arguments
      */

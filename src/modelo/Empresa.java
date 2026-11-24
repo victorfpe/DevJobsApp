@@ -33,6 +33,8 @@ public class Empresa {
     private String emailAcesso;
     private String senha;
 
+    private int idEmpresa;
+    
     public Empresa() {
     }
 
@@ -179,5 +181,13 @@ public class Empresa {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+    public int getIdEmpresa() {
+    return idEmpresa;
+}
+
+public void setIdEmpresa(int idEmpresa) {
+    this.idEmpresa = idEmpresa;
+}
     
 }
