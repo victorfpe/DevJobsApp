@@ -3,7 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/dao/VagaDao.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/modelo/Candidato.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/modelo/Vaga.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/TelaPerfilEmpresa.java</file>
             <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/TelaPerfil.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/dao/CadastroDao.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/dao/EmpresaDao.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/dao/DaoGenerica.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/TelaNovaVaga.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/dao/ConexaoBanco.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/TelaVagas.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/TelaLoginEmpresa.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/dao/CandidatoDao.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/modelo/Empresa.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/modelo/Sexualidade.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/TelaCadastro.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/dao/SexualidadeDao.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/TelaCandidatura.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/modelo/Cadastro.java</file>
+            <file>file:/home/f3l1p3/NetBeansProjects/DevJobsApp/src/TelaLogin.java</file>
         </group>
     </open-files>
 </project-private>

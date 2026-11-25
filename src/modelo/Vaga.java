@@ -76,6 +76,17 @@ public class Vaga {
 public void setIdVaga(int idVaga) {
     this.idVaga = idVaga;
 }
+
+private String nomeEmpresa;
+
+public String getNomeEmpresa() {
+    return nomeEmpresa;
+}
+
+public void setNomeEmpresa(String nomeEmpresa) {
+    this.nomeEmpresa = nomeEmpresa;
+}
+
     private String descricao;
     private double salario;
     private String modalidade;

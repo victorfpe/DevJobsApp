@@ -363,7 +363,6 @@ private void configurarEstados() {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 988));
 
         jPanel2.setBackground(new java.awt.Color(12, 50, 111));
         jPanel2.setMaximumSize(new java.awt.Dimension(1300, 988));
@@ -394,7 +393,7 @@ private void configurarEstados() {
                 SairBotaoActionPerformed(evt);
             }
         });
-        jPanel2.add(SairBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 130, 50));
+        jPanel2.add(SairBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 140, 50));
 
         InicioBotao.setBackground(new java.awt.Color(12, 50, 111));
         InicioBotao.setForeground(new java.awt.Color(255, 255, 255));
@@ -406,7 +405,7 @@ private void configurarEstados() {
                 InicioBotaoActionPerformed(evt);
             }
         });
-        jPanel2.add(InicioBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 130, 50));
+        jPanel2.add(InicioBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 140, 50));
 
         VagasBotao.setBackground(new java.awt.Color(12, 50, 111));
         VagasBotao.setForeground(new java.awt.Color(255, 255, 255));
@@ -418,7 +417,7 @@ private void configurarEstados() {
                 VagasBotaoActionPerformed(evt);
             }
         });
-        jPanel2.add(VagasBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 130, 50));
+        jPanel2.add(VagasBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 140, 50));
 
         MeuPerflBotao.setBackground(new java.awt.Color(12, 50, 111));
         MeuPerflBotao.setForeground(new java.awt.Color(255, 255, 255));
@@ -430,7 +429,7 @@ private void configurarEstados() {
                 MeuPerflBotaoActionPerformed(evt);
             }
         });
-        jPanel2.add(MeuPerflBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 130, 50));
+        jPanel2.add(MeuPerflBotao, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, 50));
 
         jPainelFundo.setBackground(new java.awt.Color(255, 255, 255));
         jPainelFundo.setPreferredSize(new java.awt.Dimension(1000, 1800));
@@ -754,8 +753,10 @@ private void configurarEstados() {
                                 .addComponent(CancelarBotao1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(128, 128, 128)
                                 .addComponent(SalvaContinuarBotao1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                        .addGap(0, 6, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -812,10 +813,10 @@ private void configurarEstados() {
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1131, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 840, 2300));
+        jPanel2.add(jPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 840, 1170));
 
         jAlterarFoto.setBackground(new java.awt.Color(19, 81, 180));
         jAlterarFoto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -830,21 +831,17 @@ private void configurarEstados() {
         jLabel4.setText("Crie o perfil da sua organizacao ");
         jAlterarFoto.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 700, 20));
 
-        jPanel2.add(jAlterarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 1150, 80));
+        jPanel2.add(jAlterarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 840, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 998, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 998, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 2510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1251, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -1207,6 +1204,7 @@ private String pegarValor(String json, String campo) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CampoCurso;
+    private javax.swing.JTextField CampoCurso1;
     private javax.swing.JButton CancelarBotao1;
     private javax.swing.JButton InicioBotao;
     private javax.swing.JButton MeuPerflBotao;
@@ -1217,16 +1215,21 @@ private String pegarValor(String json, String campo) {
     private javax.swing.JLabel j2;
     private javax.swing.JLabel j3;
     private javax.swing.JLabel j4;
+    private javax.swing.JLabel j5;
     private javax.swing.JPanel jAlterarFoto;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jCurso;
     private javax.swing.JLabel jCurso1;
     private javax.swing.JLabel jCurso2;
+    private javax.swing.JLabel jCurso3;
+    private javax.swing.JLabel jCurso4;
     private javax.swing.JLabel jFormacaoehabilidades;
     private javax.swing.JLabel jFormacaoehabilidades1;
+    private javax.swing.JLabel jFormacaoehabilidades2;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1257,6 +1260,8 @@ private String pegarValor(String json, String campo) {
     private javax.swing.JPanel jPainelFundo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
@@ -1281,6 +1286,7 @@ private String pegarValor(String json, String campo) {
     private javax.swing.JLabel jTexto;
     private javax.swing.JLabel jTexto1;
     private javax.swing.JLabel jTexto2;
+    private javax.swing.JLabel jTexto3;
     private javax.swing.JLabel jmensagemlogo;
     // End of variables declaration//GEN-END:variables
 }

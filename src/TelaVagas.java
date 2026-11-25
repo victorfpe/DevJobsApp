@@ -3,6 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+
+import dao.VagaDao;
+import modelo.Vaga;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 /**
  *
  * @author f3l1p3
@@ -15,8 +27,70 @@ public class TelaVagas extends javax.swing.JFrame {
     public TelaVagas() {
         initComponents(); 
         aplicarVisualModerno();
+        carregarVagas();
     }
     
+ private void carregarVagas() {
+
+    VagaDao dao = new VagaDao();
+
+    ArrayList<Vaga> vagas = dao.listarTodas();
+
+    painelListaVagas.removeAll();
+
+    painelListaVagas.setLayout(new javax.swing.BoxLayout(
+            painelListaVagas, javax.swing.BoxLayout.Y_AXIS));
+
+    System.out.println("Vagas encontradas: " + vagas.size());
+
+    for (Vaga vaga : vagas) {
+
+        JPanel cartao = new JPanel();
+
+        cartao.setBackground(Color.WHITE);
+        cartao.setPreferredSize(new Dimension(1000, 130));
+        cartao.setMaximumSize(new Dimension(Integer.MAX_VALUE, 130));
+
+        cartao.setLayout(new BorderLayout());
+
+        JLabel titulo = new JLabel(vaga.getTitulo());
+        titulo.setFont(new Font("Segoe UI", Font.BOLD, 18));
+
+        cartao.add(titulo, BorderLayout.NORTH);
+
+        JLabel empresa = new JLabel(vaga.getNomeEmpresa());
+        empresa.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+
+        cartao.add(empresa, BorderLayout.CENTER);
+
+        JLabel local = new JLabel(
+                vaga.getModalidade() + " - " + vaga.getLocalizacao()
+        );
+
+        local.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        cartao.add(local, BorderLayout.SOUTH);
+
+        painelListaVagas.add(cartao);
+
+        painelListaVagas.add(
+                Box.createVerticalStrut(10)
+        );
+
+        JLabel salario = new JLabel(
+        String.format("Salário: R$ %.2f", vaga.getSalario())
+);
+
+salario.setFont(new Font("Segoe UI", Font.BOLD, 14));
+
+cartao.add(salario, BorderLayout.EAST);
+    }
+
+    Resultado.setText(vagas.size() + " vagas encontradas");
+
+    painelListaVagas.revalidate();
+    painelListaVagas.repaint();
+
+}
     
 private void aplicarVisualModerno() {
     java.awt.Color fundo = new java.awt.Color(246, 248, 252);

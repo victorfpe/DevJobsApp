@@ -62,7 +62,9 @@ public class VagaDao {
 
             Connection conexao = conexaoBanco.getConnection();
 
-            String sql = "SELECT * FROM vaga";
+           String sql = "SELECT v.*, e.nome_fantasia "
+           + "FROM vaga v "
+           + "INNER JOIN empresa e ON v.id_empresa = e.id_empresa";
 
             try {
 
@@ -71,10 +73,13 @@ public class VagaDao {
                 ResultSet resultado = comando.executeQuery();
 
                 while (resultado.next()) {
+                    
+                    
 
                     Vaga vaga = new Vaga();
                     
                     vaga.setIdEmpresa(resultado.getInt("id_empresa"));
+                    vaga.setNomeEmpresa(resultado.getString("nome_fantasia"));
                     vaga.setTitulo(resultado.getString("titulo"));
                     vaga.setDescricao(resultado.getString("descricao"));
                     vaga.setSalario(resultado.getDouble("salario"));
@@ -103,15 +108,17 @@ public class VagaDao {
 public ArrayList<Vaga> listarPorEmpresa(int idEmpresa) {
 
     ArrayList<Vaga> lista = new ArrayList<>();
-
+    
+String sql = "SELECT v.*, e.nome_fantasia "
+           + "FROM vaga v "
+           + "INNER JOIN empresa e ON v.id_empresa = e.id_empresa "
+           + "WHERE v.id_empresa = ?";
     ConexaoBanco conexaoBanco = new ConexaoBanco();
 
     if (conexaoBanco.conectar()) {
 
         Connection conexao = conexaoBanco.getConnection();
-
-        String sql = "SELECT * FROM vaga WHERE id_empresa = ?";
-
+        
         try {
 
             PreparedStatement comando = conexao.prepareStatement(sql);
@@ -126,6 +133,7 @@ public ArrayList<Vaga> listarPorEmpresa(int idEmpresa) {
 
                 vaga.setIdVaga(resultado.getInt("id_vaga"));
                 vaga.setIdEmpresa(resultado.getInt("id_empresa"));
+                vaga.setNomeEmpresa(resultado.getString("nome_fantasia"));
                 vaga.setTitulo(resultado.getString("titulo"));
                 vaga.setDescricao(resultado.getString("descricao"));
                 vaga.setSalario(resultado.getDouble("salario"));

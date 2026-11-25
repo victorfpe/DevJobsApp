@@ -4,6 +4,10 @@
  */
 
 import modelo.Empresa;
+import modelo.Vaga;
+import dao.VagaDao;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,7 +29,7 @@ public TelaPerfilEmpresa(Empresa empresa) {
     initComponents();
     this.empresaLogada = empresa;
     aplicarVisualModerno();
-    preencherTabelaTeste();
+carregarMinhasVagas();
     configurarScroll();
 
 
@@ -39,31 +43,35 @@ public TelaPerfilEmpresa(Empresa empresa) {
     }
 }
 
-    private void preencherTabelaTeste() {
+   private void carregarMinhasVagas() {
+       
+       if (empresaLogada == null) {
+    return;
+}
 
-    javax.swing.table.DefaultTableModel modelo =
-            (javax.swing.table.DefaultTableModel) jTable1.getModel();
+    DefaultTableModel modelo =
+            (DefaultTableModel) jTable1.getModel();
 
     modelo.setRowCount(0);
 
-    modelo.addRow(new Object[]{
-        1,
-        "Desenvolvedor Java Júnior",
-        "Presencial",
-        "23/11/2026",
-        "Ativa",
-        8
-    });
+    VagaDao dao = new VagaDao();
 
-    modelo.addRow(new Object[]{
-        2,
-        "Analista de Dados Pleno",
-        "Híbrido",
-        "22/11/2026",
-        "Ativa",
-        10
-    });
+    ArrayList<Vaga> lista =
+            dao.listarPorEmpresa(empresaLogada.getIdEmpresa());
 
+    for (int i = 0; i < lista.size(); i++) {
+
+        Vaga vaga = lista.get(i);
+
+        modelo.addRow(new Object[]{
+            vaga.getIdVaga(),
+            vaga.getTitulo(),
+            vaga.getModalidade(),
+            vaga.getNivel(),
+            vaga.getLocalizacao(),
+            vaga.getSalario()
+        });
+    }
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,7 +90,6 @@ public TelaPerfilEmpresa(Empresa empresa) {
         VagasBotao = new javax.swing.JButton();
         MeuPerflBotao = new javax.swing.JButton();
         jPainelFundo = new javax.swing.JPanel();
-        jScrollBar1 = new javax.swing.JScrollBar();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -93,7 +100,6 @@ public TelaPerfilEmpresa(Empresa empresa) {
         jLabel18 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -125,16 +131,18 @@ public TelaPerfilEmpresa(Empresa empresa) {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
+        jScrollBar1 = new javax.swing.JScrollBar();
         jAlterarFoto = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(12, 50, 111));
-        jPanel2.setMaximumSize(new java.awt.Dimension(1300, 2500));
-        jPanel2.setMinimumSize(new java.awt.Dimension(1300, 2500));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1300, 2500));
+        jPanel2.setMaximumSize(new java.awt.Dimension(1300, 1313));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1300, 1313));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1300, 1313));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLogo.setFont(new java.awt.Font("Ubuntu", 1, 20)); // NOI18N
@@ -246,9 +254,6 @@ public TelaPerfilEmpresa(Empresa empresa) {
         jLabel33.setMinimumSize(new java.awt.Dimension(28, 28));
         jLabel33.setOpaque(true);
         jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 28, 28));
-
-        jButton1.setText("Editar Perfil");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 110, -1));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/map-pin.png"))); // NOI18N
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 190, -1, -1));
@@ -393,7 +398,7 @@ public TelaPerfilEmpresa(Empresa empresa) {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Cargo", "Modalidade", "Publicação", "Status", "Candidatosull"
+                "Código", "Cargo", "Modalidade", "Nível", "Localização", "Salário"
             }
         ) {
             Class[] types = new Class [] {
@@ -434,12 +439,13 @@ public TelaPerfilEmpresa(Empresa empresa) {
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPainelFundoLayout.setVerticalGroup(
             jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPainelFundoLayout.createSequentialGroup()
-                .addGroup(jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollBar1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPainelFundoLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -449,14 +455,11 @@ public TelaPerfilEmpresa(Empresa empresa) {
                             .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPainelFundoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 1203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1079, Short.MAX_VALUE))
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 830, 2300));
+        jPanel2.add(jPainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 830, 1230));
 
         jAlterarFoto.setBackground(new java.awt.Color(19, 81, 180));
         jAlterarFoto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -471,27 +474,21 @@ public TelaPerfilEmpresa(Empresa empresa) {
         jLabel4.setText("Gerencie suas vagas");
         jAlterarFoto.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 700, 20));
 
-        jPanel2.add(jAlterarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 1150, 80));
+        jPanel2.add(jAlterarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 1150, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 982, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2510, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 2510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -677,7 +674,7 @@ public TelaPerfilEmpresa(Empresa empresa) {
 
     // BOTÕES
     javax.swing.JButton[] botoes = {
-        jButton1, jButton2, jButton3, jButton5
+        jButton2, jButton3, jButton5
     };
 
     for (javax.swing.JButton botao : botoes) {
@@ -688,11 +685,7 @@ public TelaPerfilEmpresa(Empresa empresa) {
         );
     }
 
-    // BOTÃO EDITAR PERFIL
-    jButton1.setBackground(azul);
-    jButton1.setForeground(branco);
-    jButton1.setBorderPainted(false);
-
+   
     // BOTÃO GERENCIAMENTO
     jButton2.setBackground(azul);
     jButton2.setForeground(branco);
@@ -756,10 +749,10 @@ public TelaPerfilEmpresa(Empresa empresa) {
     
     // CONFIGURAR BARRA DE ROLAGEM
 jScrollBar1.setMinimum(0);
-jScrollBar1.setMaximum(2300);
-jScrollBar1.setVisibleAmount(600);
-jScrollBar1.setUnitIncrement(30);
-jScrollBar1.setBlockIncrement(100);
+jScrollBar1.setMaximum(1313);
+jScrollBar1.setVisibleAmount(982);
+jScrollBar1.setUnitIncrement(16);
+jScrollBar1.setBlockIncrement(50);
 
     revalidate();
     repaint();
@@ -782,13 +775,12 @@ private void configurarScroll() {
 
         int valor = e.getValue();
 
-        jPainelFundo.setLocation(
-            150,
-            80 - valor
+        jPanel2.setLocation(
+            0,
+            -valor
         );
 
     });
-
 }
     /**
      * @param args the command line arguments
@@ -831,7 +823,6 @@ private void configurarScroll() {
     private javax.swing.JButton SairBotao;
     private javax.swing.JButton VagasBotao;
     private javax.swing.JPanel jAlterarFoto;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
